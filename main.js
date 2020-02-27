@@ -5,7 +5,6 @@ function putPixel() {
 
   var canvasWidth = canvas.width;
   var canvasHeight = canvas.height;
-  ctx.clearRect(0, 0, canvasWidth, canvasHeight);
   var id = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
   var pixels = id.data;
   
