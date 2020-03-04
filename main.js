@@ -1,5 +1,15 @@
-function putPixel() {
+function pobierz(tmpa, tmpb){
+  var tmpa = xInput.value;
+  var tmpb = yInput.value;
+  return tmpa, tmpb;
+}
+function putPixel(x,y,r,g,b,a) {
   debugger;
+  
+  var tmpa = pobierz(tmpa);
+  var tmpb = pobierz(tmpb);
+  var hex = colorPicker.value;
+
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
 
@@ -7,15 +17,11 @@ function putPixel() {
   var canvasHeight = canvas.height;
   var id = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
   var pixels = id.data;
-  
-    var tmpa = document.getElementById("x-input").value;
-    var tmpb = document.getElementById("y-input").value;
 
     var x = parseInt(tmpa);
     var y = parseInt(tmpb);
 
-    var hex = document.getElementById("color-picker").value;
-    var tmp1 = parseInt(hex, 10);
+    var tmpc = parseInt(hex, 10);
 
     function hex2r(hexa){
       var r = parseInt(hexa.slice(1,3), 16);
