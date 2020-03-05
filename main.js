@@ -4,13 +4,14 @@ function pobierz(tmpa, tmpb){
   return tmpa, tmpb;
 }
 function drawLine(){
-  var context = canvas.getContext("2d");
-	context.beginPath();
-	context.moveTo(0, 0);
-	context.lineTo(100, 20);
-	context.lineWidth = 1;
-	context.strokeStyle = '#000';
-  context.stroke();
+  var ctx = canvas.getContext("2d");
+	ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.scale(2, 1)
+  ctx.lineTo(30, 30);
+	ctx.lineWidth = 1;
+	ctx.strokeStyle = '#000';
+  ctx.stroke();
   
   function putPixel(x,y,r,g,b,a) {
     debugger;
