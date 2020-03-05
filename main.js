@@ -7,10 +7,10 @@ function drawLine(){
   var ctx = canvas.getContext("2d");
 	ctx.beginPath();
   ctx.moveTo(0, 0);
-  ctx.scale(2, 1)
-  ctx.lineTo(30, 30);
+  ctx.lineTo(1, 1);
+  ctx.translate(1, 1);
 	ctx.lineWidth = 1;
-	ctx.strokeStyle = '#000';
+	ctx.strokeStyle = '#000000';
   ctx.stroke();
   
   function putPixel(x,y,r,g,b,a) {
