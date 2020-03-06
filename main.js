@@ -43,7 +43,11 @@ function putPixel(x,y,r,g,b,a) {
     ctx.putImageData(id, 0, 0);
 }
 function drawLine(x1,y1,x2,y2){
-  for(var i = 0; i < 20; i++){
-    putPixel(120, 120);
+  var x1 = 1;
+  var y1 = 2;
+  for(var i = 0; i < 50; i++){
+    x1++;
+    y1++;
+    putPixel(x1, y1);
   }
 }
