@@ -5,7 +5,6 @@ function pobierz(tmpa, tmpb){
 }
 
 function putPixel(x,y,r,g,b,a) {
-  var hex = colorPicker.value;
 
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
@@ -18,38 +17,26 @@ function putPixel(x,y,r,g,b,a) {
     var x;
     var y;
 
-    var tmpc = parseInt(hex, 10);
-
-    function hex2r(hexa){
-      var r = parseInt(hexa.slice(1,3), 16);
-      return r;
-    }
-
-    function hex2g(hexa){
-      var g = parseInt(hexa.slice(3,5), 16);
-      return g;
-    }
-
-    function hex2b(hexa){
-      var b = parseInt(hexa.slice(5,7), 16);
-      return b;
-    }
-
-    var a = (x * id.width + y) * 4;
-    pixels[a] = hex2r(hex);
-    pixels[a + 1] = hex2g(hex);
-    pixels[a + 2] = hex2b(hex);
-    pixels[a + 3] = 255;
+    var z = (x * id.width + y) * 4;
+    pixels[z] = r*255;
+    pixels[z + 1] = g*255;
+    pixels[z + 2] = b*255;
+    pixels[z + 3] = a;
     
     ctx.putImageData(id, 0, 0);
 }
 
-function drawLine(x1,y1,x2,y2){
+function drawLine(x1,y1,x2,y2,r,g,b){
   debugger;
   var x1 = parseInt(x1Input.value, 10)
   var y1 = parseInt(y1Input.value, 10)
   var x2 = parseInt(x2Input.value, 10)
   var y2 = parseInt(y2Input.value, 10)
+
+  var r = 0;
+  var g = 0;
+  var b = 1;
+  var a = 255;
 
   var vx = x2-x1;
   var vy = y2-y1;
@@ -61,6 +48,6 @@ function drawLine(x1,y1,x2,y2){
     var s = i/max;
     var xn = x1 + s*vx;
     var yn = y1 + s*vy;
-    putPixel(Math.round(xn), Math.round(yn));
+    putPixel(Math.round(xn), Math.round(yn),r,g,b,a);
   }
 }
