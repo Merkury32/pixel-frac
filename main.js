@@ -24,17 +24,7 @@ function putPixel(x,y,r,g,b,a) {
   ctx.putImageData(id, 0, 0);
 };
 
-function drawLine(x1,y1,x2,y2,r,g,b){
-
-  var r = 0;
-  var g = 0;
-  var b = 1;
-  var a = 1;
-
-  var x1 = parseInt(x1Input.value, 10);
-  var y1 = parseInt(y1Input.value, 10);
-  var x2 = parseInt(x2Input.value, 10);
-  var y2 = parseInt(y2Input.value, 10);
+function drawLine(x1,y1,x2,y2,r,g,b,a){
 
   var vx = x2-x1;
   var vy = y2-y1;
@@ -51,7 +41,7 @@ function drawLine(x1,y1,x2,y2,r,g,b){
 };
 
 function hexToRgb(){
-  
+
   var hex = colorPicker.value;
   var hex = hex.substring(1);
   var a = alphaPicker.value;
@@ -65,7 +55,24 @@ function hexToRgb(){
   var b = parseInt(b,16) /255;
   var a = parseInt(a,10) /255;
 
-  var rgba = [r,g,b,a]
+  var rgba = [r,g,b,a];
 
-  console.log(hex,rgba[1],rgba[2],rgba[3],rgba[4]);
+  return rgba;
+};
+
+function draw(){
+
+  var x1 = parseInt(x1Input.value, 10);
+  var y1 = parseInt(y1Input.value, 10);
+  var x2 = parseInt(x2Input.value, 10);
+  var y2 = parseInt(y2Input.value, 10);
+
+  var rgba = hexToRgb();
+
+  var r = rgba[0]
+  var g = rgba[1]
+  var b = rgba[2]
+  var a = rgba[3]
+
+  drawLine(x1,y1,x2,y2,r,g,b,a);
 };
