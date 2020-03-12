@@ -53,8 +53,8 @@ function drawLine(x1,y1,x2,y2){
   var max = 400;
   for(var i = 0; i < max; i++){
     var s = s + 0.001;
-    var xn = x1 * s*vx
-    var yn = y1 * s*vy
+    var xn = x1 * s*vx;
+    var yn = y1 * s*vy;
     var xn = Math.round(xn);
     var yn = Math.round(yn);
     putPixel(xn, yn);
