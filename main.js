@@ -44,14 +44,15 @@ function putPixel(x,y,r,g,b,a) {
 }
 function drawLine(x1,y1,x2,y2){
   var x1 = 1;
-  var y1 = 2;
-  var x2 = 200;
+  var y1 = 1;
+  var x2 = 100;
   var y2 = 200;
   var vx = x2-x1;
   var vy = y2-y1;
   var s = 0;
-  for(var i = 0; i < 100; i++){
-    var s = s + 0.01;
+  var max = 400;
+  for(var i = 0; i < max; i++){
+    var s = s + 0.001;
     var xn = x1 * s*vx
     var yn = y1 * s*vy
     var xn = Math.round(xn);
