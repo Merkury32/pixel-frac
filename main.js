@@ -46,21 +46,21 @@ function putPixel(x,y,r,g,b,a) {
 
 function drawLine(x1,y1,x2,y2){
   debugger;
-  var x1 = x1Input.value;
-  var y1 = y1Input.value;
-  var x2 = x2Input.value;
-  var y2 = y2Input.value;
+  var x1 = parseInt(x1Input.value, 10)
+  var y1 = parseInt(y1Input.value, 10)
+  var x2 = parseInt(x2Input.value, 10)
+  var y2 = parseInt(y2Input.value, 10)
+
   var vx = x2-x1;
   var vy = y2-y1;
+
   var s = 0;
   var max = 600;
 
   for(var i = 0; i <= max; i++){
     var s = i/max;
-    var xn = x1 * s*vx;
-    var yn = y1 * s*vy;
-    var xn = Math.round(xn);
-    var yn = Math.round(yn);
-    putPixel(xn, yn);
+    var xn = x1 + s*vx;
+    var yn = y1 + s*vy;
+    putPixel(Math.round(xn), Math.round(yn));
   }
 }
