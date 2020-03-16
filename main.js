@@ -8,8 +8,7 @@ function pobierz(tmpa, tmpb){
 function putPixel(x,y,r,g,b,a) {
 
   debugger;
-
-  vas = document.getElementById('canvas');
+  var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
 
   var canvasWidth = canvas.width;
@@ -18,23 +17,28 @@ function putPixel(x,y,r,g,b,a) {
   var pixels = id.data;
 
   var canvasColor = ctx.getImageData(x, y, 1, 1).data;
-
   var sr = canvasColor[0];
   var sg = canvasColor[1];
   var sb = canvasColor[2];
   var sa = canvasColor[3];
-  
-  var z = (x * id.width + y) * 4;
-
-  pixels[z] = sr*(1-a) + a*r;
-  pixels[z + 1] = sg*(1-a) + a*g;
-  pixels[z + 2] = sb*(1-a) + a*b;
-  pixels[z + 3] = sa*(1-a) + a*a;
-    
-  ctx.putImageData(id, 0, 0);
 
   console.log(sr,sg,sb,sa);
+
+  var zr = sr*(1-a) + a*r;
+  var zg = sg*(1-a) + a*g;
+  var zb = sb*(1-a) + a*b;
+
+  console.log(zr,zg,zb);
+  
+  var z = (x * id.width + y) * 4;
+  pixels[z] = Math.round(zr*255);
+  pixels[z + 1] = Math.round(zg*255);
+  pixels[z + 2] = Math.round(zb*255);
+  pixels[z + 3] = Math.round(a*255);
+    
+  ctx.putImageData(id, 0, 0);
 };
+
 
 function drawLine(x1,y1,x2,y2,r,g,b,a){
 
