@@ -16,13 +16,11 @@ function putPixel(x,y,r,g,b,a) {
   var id = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
   var pixels = id.data;
 
-  var canvasColor = ctx.getImageData(x, y, 1, 1).data;
-  var sr = canvasColor[0];
-  var sg = canvasColor[1];
-  var sb = canvasColor[2];
-  var sa = canvasColor[3];
+  var sr = pixels[0];
+  var sg = pixels[1];
+  var sb = pixels[2];
 
-  console.log(sr,sg,sb,sa);
+  console.log(sr,sg,sb);
 
   var zr = sr*(1-a) + a*r;
   var zg = sg*(1-a) + a*g;
